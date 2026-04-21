@@ -236,6 +236,7 @@ pub fn PlaylistDetail(
 
     let pid_for_delete = playlist_id.clone();
     let pid_for_remove = playlist_id.clone();
+    let delete_playlist_text = rust_i18n::t!("delete_playlist").to_string();
 
     rsx! {
         div {
@@ -285,7 +286,7 @@ pub fn PlaylistDetail(
                                  playlist_store.write().playlists.retain(|p| p.id != pid_for_delete);
                              },
                              i { class: "fa-solid fa-trash" }
-                             "{rust_i18n::t!(\"delete_playlist\")}"
+                             "{delete_playlist_text}"
                         }
                     }
                 },
